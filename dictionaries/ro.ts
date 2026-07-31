@@ -45,8 +45,6 @@ const ro: typeof en = {
     eyebrow: "Cum funcționează",
     headline: "Patru pași. Liniște ca stare implicită.",
     body: "Flare transformă ceea ce observă personalul într-un model viu al oaspetelui, apoi pune acțiunea potrivită în fața persoanei potrivite.",
-    defaultPosture: "Postura implicită",
-    silenceLine: "Așteaptă. Vorbește doar când va părea grijă.",
     loopAgain: "Apoi bucla începe din nou",
     steps: [
       {
@@ -71,7 +69,7 @@ const ro: typeof en = {
         body: "Tăcerea este starea implicită. Ceva apare doar când merită momentul.",
         detail:
           "Ritmul, sensibilitatea și vocea casei decid ce trece mai departe.",
-        alt: "",
+        alt: "O notă liniștită așteaptă lângă fereastră până când momentul e potrivit",
       },
       {
         id: "04",

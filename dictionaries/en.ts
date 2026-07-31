@@ -42,8 +42,6 @@ const en = {
     eyebrow: "How it works",
     headline: "Four steps. Quiet by default.",
     body: "Flare loops what staff notice into a living guest model, then puts the right action in front of the right person.",
-    defaultPosture: "Default posture",
-    silenceLine: "Hold. Wait. Speak only when it will feel like care.",
     loopAgain: "Then the loop begins again",
     steps: [
       {
@@ -68,7 +66,7 @@ const en = {
         body: "Silence is the default. Something only surfaces when it earns the moment.",
         detail:
           "Cadence, sensitivity, and house voice decide what gets through.",
-        alt: "",
+        alt: "A quiet note held by the window until the moment is right",
       },
       {
         id: "04",

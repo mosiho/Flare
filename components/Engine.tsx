@@ -10,17 +10,17 @@ type Props = {
 };
 
 const stepMedia = [
-  { media: "image" as const, image: "/images/whisper-capture.jpg" },
-  { media: "image" as const, image: "/images/taste-graph.jpg" },
-  { media: "accent" as const },
-  { media: "image" as const, image: "/images/staff-prompt.jpg" },
+  "/images/whisper-capture.jpg",
+  "/images/taste-graph.jpg",
+  "/images/moment-return-note.jpg",
+  "/images/staff-prompt.jpg",
 ];
 
 export default function Engine({ dict }: Props) {
   const reduce = useReducedMotion();
   const steps = dict.steps.map((step, index) => ({
     ...step,
-    ...stepMedia[index],
+    image: stepMedia[index],
   }));
 
   return (
@@ -87,58 +87,36 @@ export default function Engine({ dict }: Props) {
                     </p>
                   </div>
 
-                  {step.media === "image" ? (
-                    <motion.div
-                      initial={reduce ? false : { opacity: 0, scale: 1.04 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true, margin: "-12% 0px" }}
-                      transition={{
-                        duration: 1,
-                        ease: [0.22, 1, 0.36, 1],
-                      }}
-                      className={[
-                        "relative min-h-[16rem] overflow-hidden sm:min-h-[20rem] lg:min-h-[26rem]",
-                        flip ? "lg:order-1" : "",
-                      ].join(" ")}
-                    >
-                      <Image
-                        src={step.image}
-                        alt={step.alt}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover transition-transform duration-[1.4s] ease-out hover:scale-[1.03]"
-                      />
-                      <div
-                        className={[
-                          "pointer-events-none absolute inset-0",
-                          flip
-                            ? "bg-linear-to-r from-transparent via-transparent to-bg/25"
-                            : "bg-linear-to-l from-transparent via-transparent to-bg/25",
-                        ].join(" ")}
-                        aria-hidden
-                      />
-                    </motion.div>
-                  ) : (
+                  <motion.div
+                    initial={reduce ? false : { opacity: 0, scale: 1.04 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: "-12% 0px" }}
+                    transition={{
+                      duration: 1,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    className={[
+                      "relative min-h-[16rem] overflow-hidden sm:min-h-[20rem] lg:min-h-[26rem]",
+                      flip ? "lg:order-1" : "",
+                    ].join(" ")}
+                  >
+                    <Image
+                      src={step.image}
+                      alt={step.alt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-[1.4s] ease-out hover:scale-[1.03]"
+                    />
                     <div
                       className={[
-                        "relative flex min-h-[16rem] items-end overflow-hidden sm:min-h-[20rem] lg:min-h-[26rem]",
-                        "bg-[radial-gradient(ellipse_at_70%_20%,color-mix(in_srgb,var(--accent)_28%,transparent),transparent_55%),linear-gradient(160deg,var(--bg-elevated),color-mix(in_srgb,var(--accent)_12%,var(--bg)))]",
-                        flip ? "lg:order-1" : "",
+                        "pointer-events-none absolute inset-0",
+                        flip
+                          ? "bg-linear-to-r from-transparent via-transparent to-bg/25"
+                          : "bg-linear-to-l from-transparent via-transparent to-bg/25",
                       ].join(" ")}
-                    >
-                      <div className="absolute inset-0 opacity-40" aria-hidden>
-                        <div className="engine-silence-pulse absolute -right-1/4 top-1/4 h-72 w-72 rounded-full bg-accent/20 blur-3xl" />
-                      </div>
-                      <div className="relative z-10 p-8 sm:p-10 lg:p-12">
-                        <p className="text-xs font-medium tracking-[0.2em] uppercase text-accent">
-                          {dict.defaultPosture}
-                        </p>
-                        <p className="mt-4 max-w-xs font-display text-[clamp(1.5rem,3vw,2rem)] leading-snug text-fg">
-                          {dict.silenceLine}
-                        </p>
-                      </div>
-                    </div>
-                  )}
+                      aria-hidden
+                    />
+                  </motion.div>
                 </motion.div>
               </li>
             );
