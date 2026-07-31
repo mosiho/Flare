@@ -61,7 +61,7 @@ export default async function AtelierHome({
         />
         <Example
           dict={dict.example}
-          imageSrc="/images/atelier-example.jpg"
+          imageSrc="/images/atelier-example-box.jpg"
         />
         <Architecture dict={dict.architecture} />
         <Network

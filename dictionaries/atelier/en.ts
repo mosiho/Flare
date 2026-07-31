@@ -81,10 +81,10 @@ const en = {
   },
   example: {
     eyebrow: "In practice",
-    headline: "A ring mentioned once. Remembered months later.",
-    body: "During a quiet appointment, a client mentions she inherited her grandmother's engagement ring but has never had it reset. Nothing is pitched. Months later, when the estate-restoration specialist is in, the associate reaches out with a short personal note.",
+    headline: "A ring mentioned once. A box arrives as surprise.",
+    body: "During a quiet appointment, a client mentions she inherited her grandmother's engagement ring — she loves it, but it has never had a proper home. Nothing is pitched. Months later, the house has a beautiful box made for the heirloom and sends it to her, unannounced.",
     howLabel: "How Flare Atelier knows to do that",
-    imageAlt: "Quiet jewelry atelier appointment",
+    imageAlt: "Handcrafted surprise box holding an inherited engagement ring",
     beats: [
       {
         title: "Captured",
@@ -92,11 +92,11 @@ const en = {
       },
       {
         title: "Held",
-        body: "Flare Atelier keeps it on her living taste graph, quiet, until context makes it useful.",
+        body: "Flare Atelier keeps it on her living taste graph, quiet, until the moment feels right.",
       },
       {
         title: "Surfaced",
-        body: "The specialist visit creates a window. Cadence and sensitivity say this one can land. An associate gets the prompt. They decide how.",
+        body: "Cadence and sensitivity say this one can land. An associate gets the prompt — commission a box, send it as surprise. They decide how.",
       },
     ],
   },

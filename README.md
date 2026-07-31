@@ -55,7 +55,7 @@ On Vercel (or equivalent), add `atelier.flaremind.site` as a domain on the same 
   - `atelier-hero.jpg` — full-bleed hero
   - `atelier-contrast.jpg` — CRM vs human care
   - `atelier-whisper-capture.jpg`, `atelier-taste-graph.jpg`, `atelier-orchestrate.jpg`, `atelier-deliver.jpg` — engine steps
-  - `atelier-example.jpg` — inherited ring appointment
+  - `atelier-example-box.jpg` — surprise heirloom box for inherited ring
   - `atelier-memory-flow.jpg` — signals → care diagram
 
 ## Notes

@@ -84,10 +84,10 @@ const ro: typeof en = {
   },
   example: {
     eyebrow: "În practică",
-    headline: "Un inel menționat o dată. Ținut minte luni mai târziu.",
-    body: "În timpul unei programări liniștite, o clientă menționează că a moștenit inelul de logodnă al bunicii, dar nu l-a resetat niciodată. Nu se propune nimic. Luni mai târziu, când specialistul în restaurare de piese de epocă este în vizită, asociatul trimite o notă personală scurtă.",
+    headline: "Un inel menționat o dată. O cutie sosește ca surpriză.",
+    body: "În timpul unei programări liniștite, o clientă menționează că a moștenit inelul de logodnă al bunicii — îl iubește, dar nu a avut niciodată un loc potrivit pentru el. Nu se propune nimic. Luni mai târziu, casa comandă o cutie frumoasă pentru moștenire și i-o trimite, neanunțat.",
     howLabel: "Cum știe Flare Atelier să facă asta",
-    imageAlt: "Programare liniștită într-un atelier de bijuterii",
+    imageAlt: "Cutie surpriză artizanală cu un inel de logodnă moștenit",
     beats: [
       {
         title: "Capturat",
@@ -95,11 +95,11 @@ const ro: typeof en = {
       },
       {
         title: "Păstrat",
-        body: "Flare Atelier îl ține pe graficul ei viu de gusturi, în liniște, până când contextul îl face util.",
+        body: "Flare Atelier îl ține pe graficul ei viu de gusturi, în liniște, până când momentul se simte potrivit.",
       },
       {
         title: "La suprafață",
-        body: "Vizita specialistului creează o fereastră. Ritmul și sensibilitatea spun că acesta poate prinde. Un asociat primește promptul. Ei decid cum.",
+        body: "Ritmul și sensibilitatea spun că acesta poate prinde. Un asociat primește promptul — comandă o cutie, trimite-o ca surpriză. Ei decid cum.",
       },
     ],
   },
