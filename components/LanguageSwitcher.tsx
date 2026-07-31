@@ -12,7 +12,9 @@ type Props = {
 
 export default function LanguageSwitcher({ locale, labels, label }: Props) {
   const pathname = usePathname();
-  const rest = pathname.replace(/^\/(en|ro)/, "") || "";
+  // Public URLs are /{lang}/...; internal /atelier/{lang}/... may appear in rare cases.
+  const withoutAtelier = pathname.replace(/^\/atelier(?=\/|$)/, "") || "/";
+  const rest = withoutAtelier.replace(/^\/(en|ro)/, "") || "";
 
   return (
     <div

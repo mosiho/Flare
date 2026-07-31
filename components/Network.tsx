@@ -6,9 +6,13 @@ import type { Dictionary } from "@/dictionaries";
 
 type Props = {
   dict: Dictionary["network"];
+  imageSrc?: string;
 };
 
-export default function Network({ dict }: Props) {
+export default function Network({
+  dict,
+  imageSrc = "/images/memory-flow.jpg",
+}: Props) {
   return (
     <section className="section-pad border-t border-surface-border bg-bg-elevated">
       <div className="section-max">
@@ -23,7 +27,7 @@ export default function Network({ dict }: Props) {
         <Reveal delay={0.1} className="mt-10 sm:mt-12">
           <figure className="overflow-hidden">
             <Image
-              src="/images/memory-flow.jpg"
+              src={imageSrc}
               alt={dict.imageAlt}
               width={1536}
               height={1024}

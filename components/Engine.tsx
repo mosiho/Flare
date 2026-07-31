@@ -7,20 +7,21 @@ import type { Dictionary } from "@/dictionaries";
 
 type Props = {
   dict: Dictionary["engine"];
+  stepImages?: readonly [string, string, string, string];
 };
 
-const stepMedia = [
+const defaultStepMedia = [
   "/images/whisper-capture.jpg",
   "/images/taste-graph.jpg",
   "/images/moment-return-note.jpg",
   "/images/staff-prompt.jpg",
-];
+] as const;
 
-export default function Engine({ dict }: Props) {
+export default function Engine({ dict, stepImages = defaultStepMedia }: Props) {
   const reduce = useReducedMotion();
   const steps = dict.steps.map((step, index) => ({
     ...step,
-    image: stepMedia[index],
+    image: stepImages[index],
   }));
 
   return (

@@ -6,15 +6,19 @@ import type { Dictionary } from "@/dictionaries";
 
 type Props = {
   dict: Dictionary["example"];
+  imageSrc?: string;
 };
 
-export default function Example({ dict }: Props) {
+export default function Example({
+  dict,
+  imageSrc = "/images/moment-breakfast.jpg",
+}: Props) {
   return (
     <section className="border-t border-surface-border bg-bg-elevated px-[clamp(1.25rem,5vw,4rem)] py-[clamp(3rem,8vh,5rem)]">
       <div className="section-max grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
         <Reveal className="relative aspect-[4/5] overflow-hidden sm:aspect-[3/4] lg:sticky lg:top-24 lg:aspect-auto lg:min-h-[22rem]">
           <Image
-            src="/images/moment-breakfast.jpg"
+            src={imageSrc}
             alt={dict.imageAlt}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"

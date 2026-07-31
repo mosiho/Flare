@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import type { Dictionary } from "@/dictionaries";
-import HeroAtmosphere from "./HeroAtmosphere";
+import HeroAtmosphere, { type HeroAtmosphereProps } from "./HeroAtmosphere";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 22 },
@@ -19,15 +19,26 @@ const fadeUp = {
 
 type Props = {
   dict: Dictionary["hero"];
+  brand?: string;
+  atmosphere?: HeroAtmosphereProps;
 };
 
-export default function Hero({ dict }: Props) {
+export default function Hero({
+  dict,
+  brand = "Flare",
+  atmosphere,
+}: Props) {
+  const brandClass =
+    brand.length > 8
+      ? "font-display text-[clamp(2.75rem,9vw,5.75rem)] leading-[0.92] tracking-tight text-hero-fg text-balance"
+      : "font-display text-[clamp(3.5rem,12vw,7.5rem)] leading-[0.9] tracking-tight text-hero-fg";
+
   return (
     <section
       id="top"
       className="relative flex min-h-[100svh] items-end overflow-hidden"
     >
-      <HeroAtmosphere />
+      <HeroAtmosphere {...atmosphere} />
 
       <div className="relative z-10 w-full section-pad pb-[clamp(3.5rem,10vh,6rem)] pt-28">
         <div className="section-max max-w-3xl">
@@ -36,9 +47,9 @@ export default function Hero({ dict }: Props) {
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            className="font-display text-[clamp(3.5rem,12vw,7.5rem)] leading-[0.9] tracking-tight text-hero-fg"
+            className={brandClass}
           >
-            Flare
+            {brand}
           </motion.p>
 
           <motion.h1

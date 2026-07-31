@@ -1,29 +1,7 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Bodoni_Moda, DM_Sans, Fraunces } from "next/font/google";
 import { getDictionary } from "@/dictionaries";
-import { isLocale, locales, type Locale } from "@/lib/i18n";
-import "../globals.css";
-
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin", "latin-ext"],
-});
-
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin", "latin-ext"],
-});
-
-const bodoni = Bodoni_Moda({
-  variable: "--font-bodoni",
-  subsets: ["latin", "latin-ext"],
-  style: ["normal", "italic"],
-});
-
-export const viewport: Viewport = {
-  themeColor: "#F7F4EF",
-};
+import { isLocale, locales } from "@/lib/i18n";
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -42,7 +20,7 @@ export async function generateMetadata({
   return {
     title: dict.meta.title,
     description: dict.meta.description,
-    metadataBase: new URL("https://flare.hospitality"),
+    metadataBase: new URL("https://flaremind.site"),
     alternates: {
       languages: {
         en: "/en",
@@ -77,12 +55,5 @@ export default async function LangLayout({
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
 
-  return (
-    <html
-      lang={lang as Locale}
-      className={`${fraunces.variable} ${dmSans.variable} ${bodoni.variable} h-full antialiased`}
-    >
-      <body className="min-h-full bg-bg text-fg font-sans">{children}</body>
-    </html>
-  );
+  return children;
 }

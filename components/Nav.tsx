@@ -10,9 +10,16 @@ import LanguageSwitcher from "./LanguageSwitcher";
 type Props = {
   locale: Locale;
   dict: Dictionary;
+  brand?: string;
+  showContact?: boolean;
 };
 
-export default function Nav({ locale, dict }: Props) {
+export default function Nav({
+  locale,
+  dict,
+  brand = "Flare",
+  showContact = false,
+}: Props) {
   return (
     <motion.header
       initial={{ opacity: 0, y: -8 }}
@@ -26,7 +33,7 @@ export default function Nav({ locale, dict }: Props) {
           className="flex items-center gap-2.5 text-hero-fg no-underline"
         >
           <Image src="/brand/mark.svg" alt="" width={28} height={28} priority />
-          <span className="font-display text-lg tracking-tight">Flare</span>
+          <span className="font-display text-lg tracking-tight">{brand}</span>
         </Link>
         <div className="flex items-center gap-5 sm:gap-7">
           <LanguageSwitcher
@@ -40,12 +47,14 @@ export default function Nav({ locale, dict }: Props) {
           >
             {dict.nav.signIn}
           </Link>
-          {/* <a
-            href="#contact"
-            className="text-sm text-hero-muted transition-colors hover:text-hero-fg"
-          >
-            {dict.nav.getInTouch}
-          </a> */}
+          {showContact ? (
+            <a
+              href="#contact"
+              className="text-sm text-hero-muted transition-colors hover:text-hero-fg"
+            >
+              {dict.nav.getInTouch}
+            </a>
+          ) : null}
         </div>
       </nav>
     </motion.header>

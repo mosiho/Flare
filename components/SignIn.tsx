@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Dictionary } from "@/dictionaries";
 import { localePath, type Locale } from "@/lib/i18n";
-import HeroAtmosphere from "./HeroAtmosphere";
+import HeroAtmosphere, { type HeroAtmosphereProps } from "./HeroAtmosphere";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const fadeUp = {
@@ -28,15 +28,27 @@ const fieldClass =
 type Props = {
   locale: Locale;
   dict: Dictionary;
+  brand?: string;
+  atmosphere?: HeroAtmosphereProps;
 };
 
-export default function SignIn({ locale, dict }: Props) {
+export default function SignIn({
+  locale,
+  dict,
+  brand = "Flare",
+  atmosphere,
+}: Props) {
   const t = dict.signIn;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [status, setStatus] = useState<"idle" | "submitting">("idle");
+
+  const brandClass =
+    brand.length > 8
+      ? "font-display text-[clamp(2.5rem,8vw,4.5rem)] leading-[0.92] tracking-tight text-hero-fg text-balance"
+      : "font-display text-[clamp(3rem,10vw,5.5rem)] leading-[0.9] tracking-tight text-hero-fg";
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -61,7 +73,7 @@ export default function SignIn({ locale, dict }: Props) {
 
   return (
     <div className="relative flex min-h-[100svh] flex-col overflow-hidden">
-      <HeroAtmosphere />
+      <HeroAtmosphere {...atmosphere} />
       <div
         className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-t from-[#0c0a08]/85 via-transparent to-[#0c0a08]/45 lg:bg-gradient-to-r lg:from-[#0c0a08]/55 lg:via-transparent lg:to-[#0c0a08]/70"
         aria-hidden
@@ -79,7 +91,7 @@ export default function SignIn({ locale, dict }: Props) {
             className="flex items-center gap-2.5 text-hero-fg no-underline"
           >
             <Image src="/brand/mark.svg" alt="" width={28} height={28} priority />
-            <span className="font-display text-lg tracking-tight">Flare</span>
+            <span className="font-display text-lg tracking-tight">{brand}</span>
           </Link>
           <div className="flex items-center gap-5 sm:gap-7">
             <LanguageSwitcher
@@ -105,9 +117,9 @@ export default function SignIn({ locale, dict }: Props) {
               variants={fadeUp}
               initial="hidden"
               animate="show"
-              className="font-display text-[clamp(3rem,10vw,5.5rem)] leading-[0.9] tracking-tight text-hero-fg"
+              className={brandClass}
             >
-              Flare
+              {brand}
             </motion.p>
             <motion.h1
               custom={1}

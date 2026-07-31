@@ -6,9 +6,13 @@ import type { Dictionary } from "@/dictionaries";
 
 type Props = {
   dict: Dictionary["contrast"];
+  imageSrc?: string;
 };
 
-export default function Contrast({ dict }: Props) {
+export default function Contrast({
+  dict,
+  imageSrc = "/images/contrast-loyalty-vs-flare.jpg",
+}: Props) {
   return (
     <section className="section-pad border-t border-surface-border bg-bg">
       <div className="section-max">
@@ -25,7 +29,7 @@ export default function Contrast({ dict }: Props) {
         <Reveal delay={0.1} className="mt-10 sm:mt-12">
           <figure>
             <Image
-              src="/images/contrast-loyalty-vs-flare.jpg"
+              src={imageSrc}
               alt={dict.imageAlt}
               width={1920}
               height={1080}
