@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <defs>
+    <filter id="soft-blur" x="-80%" y="-80%" width="260%" height="260%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="3.2" />
+    </filter>
+    <filter id="soft-blur-sm" x="-60%" y="-60%" width="220%" height="220%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="1.4" />
+    </filter>
+    <radialGradient id="haze-far" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8A04A" stop-opacity="0.28"/>
+      <stop offset="40%" stop-color="#C9782A" stop-opacity="0.12"/>
+      <stop offset="70%" stop-color="#C9782A" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#C9782A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="haze-mid" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F0B56A" stop-opacity="0.55"/>
+      <stop offset="45%" stop-color="#E8A04A" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#C9782A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="light-core" cx="46%" cy="44%" r="54%">
+      <stop offset="0%" stop-color="#FFF1D6" stop-opacity="0.95"/>
+      <stop offset="28%" stop-color="#F2B96E" stop-opacity="0.9"/>
+      <stop offset="62%" stop-color="#C9782A" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#A35A1C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Far haze — light dissolving into space -->
+  <circle cx="32" cy="32" r="30" fill="url(#haze-far)" filter="url(#soft-blur)"/>
+  <!-- Mid bloom -->
+  <circle cx="32" cy="32" r="18" fill="url(#haze-mid)" filter="url(#soft-blur)"/>
+  <!-- Soft luminous core -->
+  <circle cx="32" cy="32" r="11" fill="url(#light-core)" filter="url(#soft-blur-sm)"/>
+</svg>
