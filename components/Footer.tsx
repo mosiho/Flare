@@ -20,15 +20,7 @@ export default function Footer({ dict }: Props) {
         </div>
 
         <div className="text-sm text-muted">
-          <a
-            href="https://www.linkedin.com/in/mosiho/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-accent"
-          >
-            LinkedIn
-          </a>
-          <p className="mt-2">© {new Date().getFullYear()} Flare</p>
+          <p>© {new Date().getFullYear()} Flare</p>
         </div>
       </div>
     </footer>
