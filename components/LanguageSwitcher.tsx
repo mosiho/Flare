@@ -8,13 +8,22 @@ type Props = {
   locale: Locale;
   labels: { en: string; ro: string };
   label: string;
+  basePath?: string;
 };
 
-export default function LanguageSwitcher({ locale, labels, label }: Props) {
+export default function LanguageSwitcher({
+  locale,
+  labels,
+  label,
+  basePath = "",
+}: Props) {
   const pathname = usePathname();
-  // Public URLs are /{lang}/...; internal /atelier/{lang}/... may appear in rare cases.
-  const withoutAtelier = pathname.replace(/^\/atelier(?=\/|$)/, "") || "/";
-  const rest = withoutAtelier.replace(/^\/(en|ro)/, "") || "";
+  const inferredBase = pathname.startsWith("/atelier") ? "/atelier" : "";
+  const base = (basePath || inferredBase).replace(/\/$/, "");
+  const withoutBase = base
+    ? pathname.replace(new RegExp(`^${base}(?=/|$)`), "") || "/"
+    : pathname;
+  const rest = withoutBase.replace(/^\/(en|ro)/, "") || "";
 
   return (
     <div
@@ -30,7 +39,7 @@ export default function LanguageSwitcher({ locale, labels, label }: Props) {
             </span>
           ) : null}
           <Link
-            href={`/${l}${rest}`}
+            href={`${base}/${l}${rest}`}
             hrefLang={l}
             lang={l}
             aria-current={locale === l ? "page" : undefined}

@@ -12,6 +12,7 @@ type Props = {
   dict: Dictionary;
   brand?: string;
   showContact?: boolean;
+  basePath?: string;
 };
 
 export default function Nav({
@@ -19,6 +20,7 @@ export default function Nav({
   dict,
   brand = "Flare",
   showContact = false,
+  basePath = "",
 }: Props) {
   return (
     <motion.header
@@ -29,7 +31,7 @@ export default function Nav({
     >
       <nav className="section-max flex items-center justify-between px-[clamp(1.25rem,5vw,4rem)] py-4">
         <Link
-          href={`${localePath(locale)}#top`}
+          href={`${localePath(locale, "", basePath)}#top`}
           className="flex items-center gap-2.5 text-hero-fg no-underline"
         >
           <Image src="/brand/mark.svg" alt="" width={28} height={28} priority />
@@ -40,9 +42,10 @@ export default function Nav({
             locale={locale}
             labels={{ en: dict.lang.en, ro: dict.lang.ro }}
             label={dict.lang.label}
+            basePath={basePath}
           />
           <Link
-            href={localePath(locale, "/signin")}
+            href={localePath(locale, "/signin", basePath)}
             className="text-sm text-hero-muted transition-colors hover:text-hero-fg"
           >
             {dict.nav.signIn}

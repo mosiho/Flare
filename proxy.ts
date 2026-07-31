@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { defaultLocale, locales, type Locale } from "@/lib/i18n";
 
-const VERTICAL_COOKIE = "flare-vertical";
-const COOKIE_MAX_AGE = 60 * 60 * 8; // 8 hours
-
 function getPreferredLocale(request: NextRequest): Locale {
   const header = request.headers.get("accept-language");
   if (!header) return defaultLocale;
@@ -37,30 +34,6 @@ function isAtelierHost(hostname: string): boolean {
   return hostname.startsWith("atelier.");
 }
 
-function isLocalHost(hostname: string): boolean {
-  return (
-    hostname === "localhost" ||
-    hostname === "127.0.0.1" ||
-    hostname.endsWith(".localhost")
-  );
-}
-
-function isAtelierVertical(request: NextRequest): boolean {
-  const hostname = hostnameOf(request);
-  if (isAtelierHost(hostname)) return true;
-
-  const { pathname } = request.nextUrl;
-  if (pathname === "/atelier" || pathname.startsWith("/atelier/")) return true;
-
-  if (!isLocalHost(hostname)) return false;
-
-  const param = request.nextUrl.searchParams.get("vertical");
-  if (param === "atelier") return true;
-  if (param === "hospitality") return false;
-
-  return request.cookies.get(VERTICAL_COOKIE)?.value === "atelier";
-}
-
 function withLocaleHeaders(
   request: NextRequest,
   locale: Locale,
@@ -72,63 +45,64 @@ function withLocaleHeaders(
   return headers;
 }
 
-function setVerticalCookie(
-  response: NextResponse,
-  vertical: "atelier" | "hospitality",
-) {
-  if (vertical === "atelier") {
-    response.cookies.set(VERTICAL_COOKIE, "atelier", {
-      path: "/",
-      maxAge: COOKIE_MAX_AGE,
-      sameSite: "lax",
-    });
-  } else {
-    response.cookies.delete(VERTICAL_COOKIE);
-  }
+function localeFromPath(pathname: string): Locale | null {
+  const match = pathname.match(/^\/(en|ro)(?:\/|$)/);
+  return match ? (match[1] as Locale) : null;
 }
 
 export function proxy(request: NextRequest) {
   const hostname = hostnameOf(request);
   const { pathname } = request.nextUrl;
-  const verticalParam = request.nextUrl.searchParams.get("vertical");
 
-  // Local preview: ?vertical=atelier|hospitality sets cookie and strips the query.
-  if (
-    isLocalHost(hostname) &&
-    (verticalParam === "atelier" || verticalParam === "hospitality")
-  ) {
+  // Legacy subdomain → path on apex (www if present in host family).
+  if (isAtelierHost(hostname)) {
     const url = request.nextUrl.clone();
-    url.searchParams.delete("vertical");
-    const response = NextResponse.redirect(url);
-    setVerticalCookie(
-      response,
-      verticalParam === "atelier" ? "atelier" : "hospitality",
+    url.hostname = hostname.replace(/^atelier\./, "www.");
+    const rest =
+      pathname === "/" || pathname === ""
+        ? ""
+        : pathname.startsWith("/atelier")
+          ? pathname.slice("/atelier".length)
+          : pathname;
+    const restHasLocale = locales.some(
+      (locale) => rest === `/${locale}` || rest.startsWith(`/${locale}/`),
     );
-    return response;
+    if (!restHasLocale) {
+      const locale = getPreferredLocale(request);
+      url.pathname = `/atelier/${locale}${rest === "/" ? "" : rest}`;
+    } else {
+      url.pathname = `/atelier${rest}`;
+    }
+    return NextResponse.redirect(url);
   }
 
-  // Direct /atelier/... preview → public path + atelier cookie (local), then rewrite.
-  if (pathname === "/atelier" || pathname.startsWith("/atelier/")) {
-    const stripped = pathname.replace(/^\/atelier/, "") || "/";
+  // Path vertical: /atelier → /atelier/{locale}
+  if (pathname === "/atelier" || pathname === "/atelier/") {
+    const locale = getPreferredLocale(request);
     const url = request.nextUrl.clone();
-    url.pathname = stripped;
+    url.pathname = `/atelier/${locale}`;
+    return NextResponse.redirect(url);
+  }
 
-    // Ensure locale on the public URL before rewrite on the next hop.
-    const strippedHasLocale = locales.some(
-      (locale) =>
-        stripped === `/${locale}` || stripped.startsWith(`/${locale}/`),
+  if (pathname.startsWith("/atelier/")) {
+    const after = pathname.slice("/atelier".length) || "/";
+    const afterHasLocale = locales.some(
+      (locale) => after === `/${locale}` || after.startsWith(`/${locale}/`),
     );
 
-    if (!strippedHasLocale) {
+    if (!afterHasLocale) {
       const locale = getPreferredLocale(request);
-      url.pathname = `/${locale}${stripped === "/" ? "" : stripped}`;
+      const url = request.nextUrl.clone();
+      url.pathname = `/atelier/${locale}${after === "/" ? "" : after}`;
+      return NextResponse.redirect(url);
     }
 
-    const response = NextResponse.redirect(url);
-    if (isLocalHost(hostname) || isAtelierHost(hostname)) {
-      setVerticalCookie(response, "atelier");
-    }
-    return response;
+    const locale = localeFromPath(after) ?? defaultLocale;
+    return NextResponse.next({
+      request: {
+        headers: withLocaleHeaders(request, locale, "atelier"),
+      },
+    });
   }
 
   const pathnameHasLocale = locales.some(
@@ -140,33 +114,10 @@ export function proxy(request: NextRequest) {
     const locale = getPreferredLocale(request);
     const url = request.nextUrl.clone();
     url.pathname = `/${locale}${pathname === "/" ? "" : pathname}`;
-    const response = NextResponse.redirect(url);
-    if (isAtelierVertical(request)) {
-      setVerticalCookie(response, "atelier");
-    }
-    return response;
+    return NextResponse.redirect(url);
   }
 
-  const locale = (locales.find(
-    (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`),
-  ) ?? defaultLocale) as Locale;
-
-  const rest = pathname.replace(new RegExp(`^/${locale}`), "") || "";
-  const atelier = isAtelierVertical(request);
-
-  if (atelier) {
-    const url = request.nextUrl.clone();
-    url.pathname = `/atelier/${locale}${rest}`;
-    const response = NextResponse.rewrite(url, {
-      request: {
-        headers: withLocaleHeaders(request, locale, "atelier"),
-      },
-    });
-    if (isLocalHost(hostname)) {
-      setVerticalCookie(response, "atelier");
-    }
-    return response;
-  }
+  const locale = localeFromPath(pathname) ?? defaultLocale;
 
   return NextResponse.next({
     request: {

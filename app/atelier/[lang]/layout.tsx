@@ -20,11 +20,11 @@ export async function generateMetadata({
   return {
     title: dict.meta.title,
     description: dict.meta.description,
-    metadataBase: new URL("https://atelier.flaremind.site"),
+    metadataBase: new URL("https://www.flaremind.site"),
     alternates: {
       languages: {
-        en: "/en",
-        ro: "/ro",
+        en: "/atelier/en",
+        ro: "/atelier/ro",
       },
     },
     openGraph: {

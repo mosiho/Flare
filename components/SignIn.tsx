@@ -30,6 +30,7 @@ type Props = {
   dict: Dictionary;
   brand?: string;
   atmosphere?: HeroAtmosphereProps;
+  basePath?: string;
 };
 
 export default function SignIn({
@@ -37,6 +38,7 @@ export default function SignIn({
   dict,
   brand = "Flare",
   atmosphere,
+  basePath = "",
 }: Props) {
   const t = dict.signIn;
   const [email, setEmail] = useState("");
@@ -87,7 +89,7 @@ export default function SignIn({
       >
         <nav className="section-max flex items-center justify-between px-[clamp(1.25rem,5vw,4rem)] py-4">
           <Link
-            href={localePath(locale)}
+            href={localePath(locale, "", basePath)}
             className="flex items-center gap-2.5 text-hero-fg no-underline"
           >
             <Image src="/brand/mark.svg" alt="" width={28} height={28} priority />
@@ -98,9 +100,10 @@ export default function SignIn({
               locale={locale}
               labels={{ en: dict.lang.en, ro: dict.lang.ro }}
               label={dict.lang.label}
+              basePath={basePath}
             />
             <Link
-              href={`${localePath(locale)}#contact`}
+              href={`${localePath(locale, "", basePath)}#contact`}
               className="text-sm text-hero-muted transition-colors hover:text-hero-fg"
             >
               {t.getInTouch}
@@ -227,7 +230,7 @@ export default function SignIn({
             <p className="mt-6 text-center text-sm text-hero-muted">
               {t.newProperty}{" "}
               <Link
-                href={`${localePath(locale)}#contact`}
+                href={`${localePath(locale, "", basePath)}#contact`}
                 className="text-hero-fg/90 underline-offset-4 transition-colors hover:text-accent hover:underline"
               >
                 {t.requestAccess}

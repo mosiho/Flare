@@ -16,19 +16,16 @@ npm install
 npm run dev
 ```
 
-### Hospitality (apex)
+### Hospitality
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000) → `/en`.
 
-### Flare Atelier (subdomain vertical)
+### Flare Atelier (path)
 
-Local preview options:
+- Landing: [http://localhost:3000/atelier](http://localhost:3000/atelier) → `/atelier/en`
+- Sign-in: [http://localhost:3000/atelier/en/signin](http://localhost:3000/atelier/en/signin)
 
-1. **Query + cookie:** [http://localhost:3000/?vertical=atelier](http://localhost:3000/?vertical=atelier) — sets an 8-hour cookie and rewrites to the Atelier site. Clear with `?vertical=hospitality`.
-2. **Subdomain host:** add `127.0.0.1 atelier.localhost` to `/etc/hosts`, then open [http://atelier.localhost:3000](http://atelier.localhost:3000).
-3. **Path:** visiting `/atelier` redirects to the public locale path and enables Atelier mode on localhost.
-
-Sign-in: `/en/signin` on the Atelier host (or after enabling Atelier mode locally).
+Production: `https://www.flaremind.site/atelier`
 
 ## Build
 
@@ -37,22 +34,15 @@ npm run build
 npm start
 ```
 
-## Deploy / DNS
+## Deploy
 
-Serve both verticals from the **same** Next.js deployment:
-
-| Host | Vertical |
-|------|----------|
-| `flaremind.site` (and `www`) | Hospitality |
-| `atelier.flaremind.site` | Flare Atelier |
-
-On Vercel (or equivalent), add `atelier.flaremind.site` as a domain on the same project. Host-based routing lives in [`proxy.ts`](./proxy.ts).
+Both verticals share one Next.js deployment on `flaremind.site` / `www.flaremind.site`. Path routing for Atelier lives in [`proxy.ts`](./proxy.ts) (`/atelier/{lang}/…`).
 
 ## Assets
 
 - Hospitality imagery: `public/images/` (hero-interval, whisper-capture, etc.)
 - Atelier imagery (jewelry / boutique vertical):
-  - `atelier-hero.jpg` — full-bleed hero
+  - `atelier-hero-vitrine.jpg` — full-bleed hero
   - `atelier-contrast.jpg` — CRM vs human care
   - `atelier-whisper-capture.jpg`, `atelier-taste-graph.jpg`, `atelier-orchestrate.jpg`, `atelier-deliver.jpg` — engine steps
   - `atelier-example-box.jpg` — surprise heirloom box for inherited ring

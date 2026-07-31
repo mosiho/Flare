@@ -29,7 +29,7 @@ export default async function AtelierHome({
 
   return (
     <>
-      <Nav locale={lang} dict={dict} brand={BRAND} showContact />
+      <Nav locale={lang} dict={dict} brand={BRAND} showContact basePath="/atelier" />
       <main>
         <Hero
           dict={dict.hero}

@@ -38,6 +38,7 @@ export default async function AtelierSignInPage({
       locale={lang}
       dict={dict}
       brand={BRAND}
+      basePath="/atelier"
       atmosphere={{
         imageSrc: "/images/atelier-hero-vitrine.jpg",
         imageAlt:

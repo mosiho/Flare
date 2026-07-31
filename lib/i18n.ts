@@ -8,7 +8,12 @@ export function isLocale(value: string): value is Locale {
   return (locales as readonly string[]).includes(value);
 }
 
-export function localePath(locale: Locale, path = ""): string {
+export function localePath(
+  locale: Locale,
+  path = "",
+  basePath = "",
+): string {
+  const base = basePath.replace(/\/$/, "");
   const normalized = path.startsWith("/") ? path : path ? `/${path}` : "";
-  return `/${locale}${normalized}`;
+  return `${base}/${locale}${normalized}`;
 }
