@@ -35,11 +35,6 @@ export default function Engine({ dict }: Props) {
         </Reveal>
 
         <ol className="relative mt-16 space-y-0 lg:mt-20">
-          <div
-            className="pointer-events-none absolute bottom-8 left-[1.15rem] top-8 hidden w-px bg-linear-to-b from-accent/50 via-surface-border to-accent/40 sm:left-6 lg:block"
-            aria-hidden
-          />
-
           {steps.map((step, index) => {
             const flip = index % 2 === 1;
 
@@ -63,16 +58,9 @@ export default function Engine({ dict }: Props) {
                     className={[
                       "relative flex flex-col justify-center py-10 pr-0 sm:py-12 lg:py-16",
                       flip ? "lg:order-2 lg:pl-14 lg:pr-2" : "lg:pr-14 lg:pl-14",
-                      "pl-12 sm:pl-16 lg:pl-14",
+                      "pl-0 lg:pl-14",
                     ].join(" ")}
                   >
-                    <span
-                      className="absolute left-0 top-10 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-bg font-display text-sm text-accent ring-1 ring-accent/45 sm:top-12 lg:top-16"
-                      aria-hidden
-                    >
-                      {step.id}
-                    </span>
-
                     <p className="font-display text-[clamp(2.5rem,6vw,4.25rem)] leading-none tracking-tight text-fg/8">
                       {step.id}
                     </p>
