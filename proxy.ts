@@ -50,11 +50,30 @@ function localeFromPath(pathname: string): Locale | null {
   return match ? (match[1] as Locale) : null;
 }
 
+function redirectWithoutAtelierPrefix(
+  request: NextRequest,
+  pathname: string,
+): NextResponse {
+  const locale = getPreferredLocale(request);
+  const after = pathname.slice("/atelier".length) || "/";
+  const afterHasLocale = locales.some(
+    (l) => after === `/${l}` || after.startsWith(`/${l}/`),
+  );
+
+  const url = request.nextUrl.clone();
+  if (!afterHasLocale) {
+    url.pathname = `/${locale}${after === "/" ? "" : after}`;
+  } else {
+    url.pathname = after;
+  }
+  return NextResponse.redirect(url);
+}
+
 export function proxy(request: NextRequest) {
   const hostname = hostnameOf(request);
   const { pathname } = request.nextUrl;
 
-  // Legacy subdomain → path on apex (www if present in host family).
+  // Legacy subdomain → apex path (Atelier is now the main site).
   if (isAtelierHost(hostname)) {
     const url = request.nextUrl.clone();
     url.hostname = hostname.replace(/^atelier\./, "www.");
@@ -69,40 +88,20 @@ export function proxy(request: NextRequest) {
     );
     if (!restHasLocale) {
       const locale = getPreferredLocale(request);
-      url.pathname = `/atelier/${locale}${rest === "/" ? "" : rest}`;
+      url.pathname = `/${locale}${rest === "/" ? "" : rest}`;
     } else {
-      url.pathname = `/atelier${rest}`;
+      url.pathname = rest;
     }
     return NextResponse.redirect(url);
   }
 
-  // Path vertical: /atelier → /atelier/{locale}
-  if (pathname === "/atelier" || pathname === "/atelier/") {
-    const locale = getPreferredLocale(request);
-    const url = request.nextUrl.clone();
-    url.pathname = `/atelier/${locale}`;
-    return NextResponse.redirect(url);
-  }
-
-  if (pathname.startsWith("/atelier/")) {
-    const after = pathname.slice("/atelier".length) || "/";
-    const afterHasLocale = locales.some(
-      (locale) => after === `/${locale}` || after.startsWith(`/${locale}/`),
-    );
-
-    if (!afterHasLocale) {
-      const locale = getPreferredLocale(request);
-      const url = request.nextUrl.clone();
-      url.pathname = `/atelier/${locale}${after === "/" ? "" : after}`;
-      return NextResponse.redirect(url);
-    }
-
-    const locale = localeFromPath(after) ?? defaultLocale;
-    return NextResponse.next({
-      request: {
-        headers: withLocaleHeaders(request, locale, "atelier"),
-      },
-    });
+  // Legacy /atelier paths → root (Atelier is now the main site).
+  if (
+    pathname === "/atelier" ||
+    pathname === "/atelier/" ||
+    pathname.startsWith("/atelier/")
+  ) {
+    return redirectWithoutAtelierPrefix(request, pathname);
   }
 
   const pathnameHasLocale = locales.some(
@@ -121,7 +120,7 @@ export function proxy(request: NextRequest) {
 
   return NextResponse.next({
     request: {
-      headers: withLocaleHeaders(request, locale, "hospitality"),
+      headers: withLocaleHeaders(request, locale, "atelier"),
     },
   });
 }

@@ -18,8 +18,7 @@ export default function LanguageSwitcher({
   basePath = "",
 }: Props) {
   const pathname = usePathname();
-  const inferredBase = pathname.startsWith("/atelier") ? "/atelier" : "";
-  const base = (basePath || inferredBase).replace(/\/$/, "");
+  const base = basePath.replace(/\/$/, "");
   const withoutBase = base
     ? pathname.replace(new RegExp(`^${base}(?=/|$)`), "") || "/"
     : pathname;

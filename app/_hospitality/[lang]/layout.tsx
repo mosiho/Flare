@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAtelierDictionary } from "@/dictionaries/atelier";
+import { getDictionary } from "@/dictionaries";
 import { isLocale, locales } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -15,28 +15,23 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!isLocale(lang)) return {};
 
-  const dict = getAtelierDictionary(lang);
+  const dict = getDictionary(lang);
 
   return {
     title: dict.meta.title,
     description: dict.meta.description,
-    metadataBase: new URL("https://www.flaremind.site"),
+    metadataBase: new URL("https://flaremind.site"),
     alternates: {
       languages: {
-        en: "/atelier/en",
-        ro: "/atelier/ro",
+        en: "/en",
+        ro: "/ro",
       },
     },
     openGraph: {
       title: dict.meta.title,
       description: dict.meta.ogDescription,
       images: [
-        {
-          url: "/images/atelier-hero-vitrine.jpg",
-          width: 1536,
-          height: 1024,
-          alt: "Flare Atelier",
-        },
+        { url: "/images/og-share.jpg", width: 1920, height: 1080, alt: "Flare" },
       ],
       type: "website",
       locale: lang === "ro" ? "ro_RO" : "en_US",
@@ -45,12 +40,12 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: dict.meta.title,
       description: dict.meta.ogDescription,
-      images: ["/images/atelier-hero-vitrine.jpg"],
+      images: ["/images/og-share.jpg"],
     },
   };
 }
 
-export default async function AtelierLangLayout({
+export default async function HospitalityLangLayout({
   children,
   params,
 }: Readonly<{

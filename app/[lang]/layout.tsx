@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getDictionary } from "@/dictionaries";
+import { getAtelierDictionary } from "@/dictionaries/atelier";
 import { isLocale, locales } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -15,12 +15,12 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!isLocale(lang)) return {};
 
-  const dict = getDictionary(lang);
+  const dict = getAtelierDictionary(lang);
 
   return {
     title: dict.meta.title,
     description: dict.meta.description,
-    metadataBase: new URL("https://flaremind.site"),
+    metadataBase: new URL("https://www.flaremind.site"),
     alternates: {
       languages: {
         en: "/en",
@@ -31,7 +31,12 @@ export async function generateMetadata({
       title: dict.meta.title,
       description: dict.meta.ogDescription,
       images: [
-        { url: "/images/og-share.jpg", width: 1920, height: 1080, alt: "Flare" },
+        {
+          url: "/images/atelier-hero-vitrine.jpg",
+          width: 1536,
+          height: 1024,
+          alt: "Flare Atelier",
+        },
       ],
       type: "website",
       locale: lang === "ro" ? "ro_RO" : "en_US",
@@ -40,7 +45,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: dict.meta.title,
       description: dict.meta.ogDescription,
-      images: ["/images/og-share.jpg"],
+      images: ["/images/atelier-hero-vitrine.jpg"],
     },
   };
 }
