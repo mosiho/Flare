@@ -11,7 +11,6 @@ type Props = {
   locale: Locale;
   dict: Dictionary;
   brand?: string;
-  showContact?: boolean;
   basePath?: string;
 };
 
@@ -19,7 +18,6 @@ export default function Nav({
   locale,
   dict,
   brand = "Flare",
-  showContact = false,
   basePath = "",
 }: Props) {
   return (
@@ -50,14 +48,6 @@ export default function Nav({
           >
             {dict.nav.signIn}
           </Link>
-          {showContact ? (
-            <a
-              href="#contact"
-              className="text-sm text-hero-muted transition-colors hover:text-hero-fg"
-            >
-              {dict.nav.getInTouch}
-            </a>
-          ) : null}
         </div>
       </nav>
     </motion.header>

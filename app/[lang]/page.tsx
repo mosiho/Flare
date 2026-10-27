@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import {
-  atelierMemoryWords,
-  getAtelierDictionary,
-} from "@/dictionaries/atelier";
+  memoryWords,
+  getDictionary,
+} from "@/dictionaries";
 import { isLocale } from "@/lib/i18n";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
@@ -12,7 +12,6 @@ import Engine from "@/components/Engine";
 import Example from "@/components/Example";
 import Architecture from "@/components/Architecture";
 import Network from "@/components/Network";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const BRAND = "Flare Atelier";
@@ -25,11 +24,11 @@ export default async function Home({
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
 
-  const dict = getAtelierDictionary(lang);
+  const dict = getDictionary(lang);
 
   return (
     <>
-      <Nav locale={lang} dict={dict} brand={BRAND} showContact />
+      <Nav locale={lang} dict={dict} brand={BRAND}/>
       <main>
         <Hero
           dict={dict.hero}
@@ -40,7 +39,7 @@ export default async function Home({
               lang === "ro"
                 ? "Vitrină cu ceasuri și bijuterii rare; colecție de mașini clasice estompată prin sticlă"
                 : "Showcase of rare watches and jewelry; blurred classic car collection through the glass",
-            memoryWords: atelierMemoryWords[lang],
+            memoryWords: memoryWords[lang],
             imagePosition: "50% 48%",
             emberAt: "50% 55%",
           }}
@@ -68,7 +67,6 @@ export default async function Home({
           dict={dict.network}
           imageSrc="/images/atelier-memory-flow.jpg"
         />
-        <Contact dict={dict.contact} />
       </main>
       <Footer dict={dict.footer} brand={BRAND} />
     </>

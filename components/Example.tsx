@@ -11,7 +11,7 @@ type Props = {
 
 export default function Example({
   dict,
-  imageSrc = "/images/moment-breakfast.jpg",
+  imageSrc = "/images/atelier-example-box.jpg",
 }: Props) {
   return (
     <section className="border-t border-surface-border bg-bg-elevated px-[clamp(1.25rem,5vw,4rem)] py-[clamp(3rem,8vh,5rem)]">

@@ -11,13 +11,13 @@ export type HeroAtmosphereProps = {
 }
 
 const defaultMemoryWords = [
-  "corner suite",
-  "earl grey, unsweetened",
-  "the quiet floor",
-  "window left ajar",
-  "returned in March",
-  "travels alone",
-  "extra pillows",
+  "blue dial, declined",
+  "grandmother's ring",
+  "private viewing",
+  "estate chronograph",
+  "returned in spring",
+  "heirloom reset",
+  "collector, quiet taste",
 ] as const;
 
 const wordClass = [
@@ -31,8 +31,8 @@ const wordClass = [
 ] as const;
 
 export default function HeroAtmosphere({
-  imageSrc = "/images/hero-interval.jpg",
-  imageAlt = "Quiet boutique hotel corridor at dusk",
+  imageSrc = "/images/atelier-hero-vitrine.jpg",
+  imageAlt = "Showcase of rare watches and jewelry",
   memoryWords = defaultMemoryWords,
   imagePosition = "52% 42%",
   emberAt,

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAtelierDictionary } from "@/dictionaries/atelier";
+import { getDictionary } from "@/dictionaries";
 import { isLocale, locales } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -15,7 +15,7 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!isLocale(lang)) return {};
 
-  const dict = getAtelierDictionary(lang);
+  const dict = getDictionary(lang);
 
   return {
     title: dict.meta.title,

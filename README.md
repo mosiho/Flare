@@ -1,6 +1,6 @@
-# Flare
+# Flare Atelier
 
-Investor landing pages for Flare — guest memory for independent hospitality — and **Flare Atelier**, the luxury-retail vertical.
+Investor landing page for **Flare Atelier** — client memory for independent luxury retail.
 
 ## Stack
 
@@ -16,16 +16,10 @@ npm install
 npm run dev
 ```
 
-### Hospitality
+- Landing: [http://localhost:3000](http://localhost:3000) → `/en`
+- Sign-in: [http://localhost:3000/en/signin](http://localhost:3000/en/signin)
 
-Open [http://localhost:3000](http://localhost:3000) → `/en`.
-
-### Flare Atelier (path)
-
-- Landing: [http://localhost:3000/atelier](http://localhost:3000/atelier) → `/atelier/en`
-- Sign-in: [http://localhost:3000/atelier/en/signin](http://localhost:3000/atelier/en/signin)
-
-Production: `https://www.flaremind.site/atelier`
+Production: `https://www.flaremind.site`
 
 ## Build
 
@@ -36,12 +30,11 @@ npm start
 
 ## Deploy
 
-Both verticals share one Next.js deployment on `flaremind.site` / `www.flaremind.site`. Path routing for Atelier lives in [`proxy.ts`](./proxy.ts) (`/atelier/{lang}/…`).
+One Next.js deployment on `flaremind.site` / `www.flaremind.site`. Locale routing and legacy `/atelier` / `atelier.` redirects live in [`proxy.ts`](./proxy.ts).
 
 ## Assets
 
-- Hospitality imagery: `public/images/` (hero-interval, whisper-capture, etc.)
-- Atelier imagery (jewelry / boutique vertical):
+- `public/images/`:
   - `atelier-hero-vitrine.jpg` — full-bleed hero
   - `atelier-contrast.jpg` — CRM vs human care
   - `atelier-whisper-capture.jpg`, `atelier-taste-graph.jpg`, `atelier-orchestrate.jpg`, `atelier-deliver.jpg` — engine steps
@@ -51,4 +44,4 @@ Both verticals share one Next.js deployment on `flaremind.site` / `www.flaremind
 ## Notes
 
 - Sign-in is UI-only (mock validation); no real auth backend yet.
-- Concept sources: [`Business.md`](./Business.md) (hospitality), [`line.md`](./line.md) (Atelier).
+- Concept source: [`line.md`](./line.md).

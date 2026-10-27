@@ -80,12 +80,6 @@ export default function Hero({
             className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4"
           >
             <a
-              href="#contact"
-              className="inline-flex items-center justify-center bg-accent px-6 py-3 text-sm font-medium text-hero-fg transition-colors hover:bg-accent-deep"
-            >
-              {dict.cta}
-            </a>
-            <a
               href="#how"
               className="text-sm text-hero-fg/85 underline-offset-4 transition-colors hover:text-accent hover:underline"
             >

@@ -2,7 +2,7 @@
 
 *Working concept document — v0.1*
 *Sub-brand of Flare, serving the luxury boutique / fine jewelry / collector-clienteling vertical*
-*Proposed subdomain: atelier.flaremind.site*
+*Site: www.flaremind.site*
 
 ---
 
@@ -148,15 +148,15 @@ This points toward **independent fine jewelry houses, estate and antique jewelry
 
 These are flagged honestly, not glossed over, because they materially affect how the business case should be pitched:
 
-1. **Data ownership and consent architecture.** The product depends on capturing informal, sometimes sensitive personal information (family circumstance, financial context implied by purchase intent, emotional disclosures around inheritance or milestones). A clear, client-facing consent model is not optional — it is core to the "clients should feel understood, never targeted" promise being credible rather than unsettling. This needs a concrete legal/privacy design before any pilot, particularly given the sensitivity of financial and family information in this vertical compared to hospitality.
+1. **Data ownership and consent architecture.** The product depends on capturing informal, sometimes sensitive personal information (family circumstance, financial context implied by purchase intent, emotional disclosures around inheritance or milestones). A clear, client-facing consent model is not optional — it is core to the "clients should feel understood, never targeted" promise being credible rather than unsettling. This needs a concrete legal/privacy design before any pilot, particularly given the sensitivity of financial and family information in this vertical.
 
-2. **Operational load on associates.** The capture mechanism ("whisper box") requires associate behavior change — actually logging fragments in the moment, in a retail floor environment that is often busier and more transactional in tempo than a hotel stay. Adoption research should validate that this is lower-friction than it sounds, or the product's core data source will simply not fill up.
+2. **Operational load on associates.** The capture mechanism ("whisper box") requires associate behavior change — actually logging fragments in the moment, in a retail floor environment that is often busy and transactional in tempo. Adoption research should validate that this is lower-friction than it sounds, or the product's core data source will simply not fill up.
 
 3. **Cold-start problem.** The model's value compounds over time and multiple visits. Early clients, and any boutique just starting with Flare Atelier, will see a much thinner "taste graph" than the product's marketing examples suggest. The pitch and the pilot design should account for this honestly.
 
 4. **What "delivery as action" requires operationally.** Prompting an associate to "reach out to this client this week" only works if that associate is still employed there, still owns that relationship, and has the time and authority to act on the prompt. Given known associate turnover in retail generally, this is a heavier organizational dependency than a fully automated system, and should be scoped clearly with any pilot boutique (who owns follow-through, and how is it measured when an associate leaves).
 
-5. **A genuinely crowded competitive category.** Unlike hospitality guest-memory tools, luxury retail clienteling is a mature, well-funded category with established players (BSPK, Endear, Tulip, Proximity, Luxare, and others) actively competing on AI-driven recommendation and omnichannel automation. Flare Atelier's differentiation is philosophical and experiential (quiet, human-only, anti-campaign) rather than feature-based — this needs direct validation with boutique owners before further investment, to confirm the "quiet, not tracked" positioning answers a real frustration rather than a preference assumed on the product's behalf. See open validation questions in section 9.
+5. **A genuinely crowded competitive category.** Luxury retail clienteling is a mature, well-funded category with established players (BSPK, Endear, Tulip, Proximity, Luxare, and others) actively competing on AI-driven recommendation and omnichannel automation. Flare Atelier's differentiation is philosophical and experiential (quiet, human-only, anti-campaign) rather than feature-based — this needs direct validation with boutique owners before further investment, to confirm the "quiet, not tracked" positioning answers a real frustration rather than a preference assumed on the product's behalf. See open validation questions in section 9.
 
 6. **Brand-name and positioning clearance.** "Atelier" as a sub-brand name should be checked for trademark conflicts and existing use within the jewelry/luxury retail software space before further investment in brand collateral — this has not yet been verified.
 
@@ -164,11 +164,11 @@ These are flagged honestly, not glossed over, because they materially affect how
 
 ## 9. Validation plan (before further product investment)
 
-Because this vertical is more competitively crowded than hospitality, and because the core differentiation (philosophy/feel, not features) has not yet been tested against real operator frustration, the following should happen before building beyond a landing page:
+Because this category is competitively crowded, and because the core differentiation (philosophy/feel, not features) has not yet been tested against real operator frustration, the following should happen before building beyond a landing page:
 
 - **5–10 structured conversations with independent boutique owners or lead associates** (fine jewelry, estate jewelry, bespoke ateliers), asking specifically: *"What do you dislike about your current clienteling or CRM tool, if you use one? What does it feel like from the client's side?"*
 - Listen for whether dissatisfaction clusters around **feeling mechanical/automated** (validates the "quiet, human-only" thesis) versus **price, complexity, or missing features** (would mean the positioning needs to shift toward a different gap).
-- Test willingness to pay and willingness to change associate behavior (the "whisper box" habit) specifically — this is a harder sell in a fast-paced retail-floor environment than in a hospitality stay.
+- Test willingness to pay and willingness to change associate behavior (the "whisper box" habit) specifically — this is a hard sell in a fast-paced retail-floor environment.
 
 ---
 
@@ -177,10 +177,10 @@ Because this vertical is more competitively crowded than hospitality, and becaus
 Flare Atelier is positioned as a **sub-brand and dedicated vertical** of Flare, sharing the parent brand's core philosophy (memory over segmentation, silence as default, human-delivered action) and much of its underlying product architecture (capture → model → orchestrate → deliver), while adapting language, imagery, and integration points to the luxury retail/collector context.
 
 Proposed structure:
-- **Parent brand:** Flare — flaremind.site (hospitality, current live concept)
-- **Vertical sub-brand:** Flare Atelier — atelier.flaremind.site (independent luxury retail: fine jewelry, estate pieces, bespoke ateliers, collector-facing boutiques)
+- **Parent brand:** Flare
+- **Vertical sub-brand:** Flare Atelier — www.flaremind.site (independent luxury retail: fine jewelry, estate pieces, bespoke ateliers, collector-facing boutiques)
 
-This mirrors a common category-expansion pattern: one philosophy, one underlying engine, multiple vertical-specific front doors — rather than a generic "Flare for everyone" positioning that would dilute the specificity that makes the hospitality pitch credible.
+This mirrors a common category-expansion pattern: one philosophy, one underlying engine, vertical-specific front doors — rather than a generic "Flare for everyone" positioning that would dilute the specificity that makes the pitch credible.
 
 ---
 

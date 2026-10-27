@@ -1,17 +1,16 @@
 const en = {
   meta: {
-    title: "Flare — Guest memory for independent hospitality",
+    title: "Flare Atelier — Client memory for independent luxury retail",
     description:
-      "Flare helps independent hotels remember guests between stays. Quiet intelligence for staff, not another loyalty program.",
+      "Flare Atelier helps independent houses of watches, jewelry, and rare collections remember clients between visits. Quiet intelligence for associates, not another clienteling CRM.",
     ogDescription:
-      "Guest memory for independent hotels. Helps staff remember people, not segments.",
-    signInTitle: "Sign in — Flare",
+      "Client memory for watches, fine jewelry, and collector boutiques. Helps associates remember people, not segments.",
+    signInTitle: "Sign in — Flare Atelier",
     signInDescription:
-      "Staff sign-in for Flare. Guest memory for independent hotels.",
+      "Associate sign-in for Flare Atelier. Client memory for independent luxury retail.",
   },
   nav: {
     signIn: "Sign in",
-    getInTouch: "Get in touch",
   },
   lang: {
     en: "EN",
@@ -19,45 +18,45 @@ const en = {
     label: "Language",
   },
   hero: {
-    headline: "The relationship lives between stays.",
-    sub: "Guest memory for independent hotels. Helps staff remember people, not segments.",
-    cta: "Get in touch",
+    headline: "What lives behind the glass is remembered.",
+    sub: "Client memory for independent houses of watches, jewelry, and rare collections. Helps associates remember people, not segments.",
     secondary: "See how it works",
   },
   problem: {
     eyebrow: "The gap",
-    headline: "Hotels got great at the stay. They forgot the months in between.",
-    body: "Taste changes. Staff turn over. Notes live in someone's head. Meanwhile another property sends a quiet email and wins the guest you already earned.",
+    headline:
+      "Boutiques got great at the transaction. They forgot the months in between.",
+    body: "Taste drifts. Associates move on. What they knew about a client leaves with them. Meanwhile a rival house sends a quiet personal note and wins the client you already earned.",
     closer:
-      "Flare treats that quiet stretch as the main surface, not the afterthought.",
+      "Flare Atelier treats that quiet stretch as the main surface, not the afterthought.",
   },
   contrast: {
     eyebrow: "What it isn't",
-    headline: "Not a loyalty program.",
-    body: "Guests should feel remembered, not tracked.",
+    headline: "Not a clienteling CRM.",
+    body: "Clients should feel remembered, not targeted.",
     imageAlt:
-      "Loyalty and CRM on the left with points, tiers, calendars, and automated emails versus Flare on the right with human memory, personal notes, and staff-led care",
+      "Clienteling CRM on the left with auto-tags, campaigns, and automated outreach versus Flare Atelier on the right with human memory, personal notes, and associate-led care",
   },
   engine: {
     eyebrow: "How it works",
     headline: "Four steps. Quiet by default.",
-    body: "Flare loops what staff notice into a living guest model, then puts the right action in front of the right person.",
+    body: "Flare Atelier loops what associates notice into a living client model, then puts the right action in front of the right person.",
     loopAgain: "Then the loop begins again",
     steps: [
       {
         id: "01",
         name: "Capture",
-        body: "PMS facts plus staff whispers. What happened, and what it meant.",
+        body: "POS facts plus associate whispers. What was bought, and what it meant.",
         detail:
-          "Stay history, requests, and the informal notes no system usually keeps.",
-        alt: "Staff capturing a quiet guest observation",
+          "Purchase history, appointments, and the informal notes no retail system usually keeps.",
+        alt: "Associate capturing a quiet client observation",
       },
       {
         id: "02",
         name: "Model",
-        body: "A living guest model that drifts as the person does.",
+        body: "A living taste graph that drifts as the person does.",
         detail:
-          "Taste, companions, and rejections that fade — not a flat CRM row.",
+          "Taste, occasions, and declines that fade — not a flat CRM row.",
         alt: "Living taste graph",
       },
       {
@@ -66,81 +65,71 @@ const en = {
         body: "Silence is the default. Something only surfaces when it earns the moment.",
         detail:
           "Cadence, sensitivity, and house voice decide what gets through.",
-        alt: "A quiet note held by the window until the moment is right",
+        alt: "A quiet note held until the moment is right",
       },
       {
         id: "04",
         name: "Deliver",
-        body: "Prompt the right person. Not the guest's inbox.",
+        body: "Prompt the right associate. Not the client's inbox.",
         detail:
-          "Care stays human — staff choose the words, Flare chooses the timing.",
-        alt: "Staff preparing a personal note",
+          "Recognition stays human — associates choose the words, Flare Atelier chooses the timing.",
+        alt: "Associate preparing a personal note",
       },
     ],
   },
   example: {
     eyebrow: "In practice",
-    headline: "A flavor mentioned once. Remembered months later.",
-    body: "Over breakfast, a guest says a flavor reminds her of childhood summers. Nothing is sold. Months later, something small shows up on a return stay.",
-    howLabel: "How Flare knows to do that",
-    imageAlt: "Breakfast table taste memory",
+    headline: "A ring mentioned once. A box arrives as surprise.",
+    body: "During a quiet appointment, a client mentions she inherited her grandmother's engagement ring — she loves it, but it has never had a proper home. Nothing is pitched. Months later, the house has a beautiful box made for the heirloom and sends it to her, unannounced.",
+    howLabel: "How Flare Atelier knows to do that",
+    imageAlt: "Handcrafted surprise box holding an inherited engagement ring",
     beats: [
       {
         title: "Captured",
-        body: "Staff drops the fragment into the whisper box. Not a form. Just a note.",
+        body: "The associate drops the fragment into the whisper box. Not a form. Just a note.",
       },
       {
         title: "Held",
-        body: "Flare keeps it on her living taste graph, quiet, until context makes it useful.",
+        body: "Flare Atelier keeps it on her living taste graph, quiet, until the moment feels right.",
       },
       {
         title: "Surfaced",
-        body: "A return stay is coming. Cadence and sensitivity say this one can land. A staff member gets the prompt. They decide how.",
+        body: "Cadence and sensitivity say this one can land. An associate gets the prompt — commission a box, send it as surprise. They decide how.",
       },
     ],
   },
   architecture: {
     eyebrow: "Fits where you are",
-    headline: "Sits on your PMS. Doesn't replace it.",
-    body: "Flare reads what your system already knows, adds the informal layer staff carry in their heads, and sends actions back to people.",
-    flareLabel: "Flare",
-    flareTitle: "Guest memory",
-    pmsLabel: "Your PMS",
+    headline: "Sits on your retail system. Doesn't replace it.",
+    body: "Flare Atelier reads what your POS already knows, adds the informal layer associates carry in their heads, and sends actions back to people.",
+    flareLabel: "Flare Atelier",
+    flareTitle: "Client memory",
+    pmsLabel: "Your POS",
     pmsTitle: "Operations",
     flows: [
-      { title: "In", body: "Stay history and profiles from the PMS." },
-      { title: "Also in", body: "Voice notes and staff observations." },
+      { title: "In", body: "Purchase history and profiles from the retail system." },
+      { title: "Also in", body: "Voice notes and associate observations." },
       {
         title: "Out",
-        body: "Actions for staff. Rarely, a human-sent note.",
+        body: "Actions for associates. Rarely, a human-sent private note.",
       },
     ],
   },
   network: {
     eyebrow: "How memory becomes care",
-    headline: "Noticed in every space. Felt between stays.",
-    body: "Signals gather quietly. Then care shows up — during the long stretch between visits, and when they walk back in.",
+    headline: "Noticed on the floor. Felt between visits.",
+    body: "Signals gather quietly. Then recognition shows up — during the long stretch between visits, and when they walk back in.",
     imageAlt:
-      "Hotel spaces feed into Flare guest memory, which surfaces care between stays and prepares the next return",
-  },
-  contact: {
-    eyebrow: "Get in touch",
-    name: "Mosi",
-    body: "Building Flare. Happy to talk.",
-    socialLabel: "Social links",
-    onPlatform: "Mosi on",
-    comingSoon: "Link coming soon",
-    comingSoonAria: "— link coming soon",
+      "Boutique spaces feed into Flare Atelier client memory, which surfaces care between visits and prepares the next return",
   },
   footer: {
-    tagline: "Guest memory for independent hospitality.",
+    tagline: "Client memory for watches, jewelry, and rare collections.",
   },
   signIn: {
-    getInTouch: "Get in touch",
-    headline: "Staff sign-in",
-    sub: "For independent hotels. Quiet guest memory, backstage for your team.",
+    headline: "Associate sign-in",
+    sub: "For independent boutiques. Quiet client memory, backstage for your team.",
     email: "Work email",
-    emailPlaceholder: "you@property.com",
+    emailPlaceholder: "you@boutique.com",
     password: "Password",
     forgot: "Forgot password?",
     remember: "Remember this device",
@@ -149,8 +138,6 @@ const en = {
     errorEmail: "Enter a valid work email.",
     errorPassword: "Password must be at least 8 characters.",
     errorCredentials: "Incorrect email or password.",
-    newProperty: "New property?",
-    requestAccess: "Request access",
   },
 };
 

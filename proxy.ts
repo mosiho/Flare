@@ -37,7 +37,7 @@ function isAtelierHost(hostname: string): boolean {
 function withLocaleHeaders(
   request: NextRequest,
   locale: Locale,
-  vertical: "atelier" | "hospitality",
+  vertical: "atelier",
 ): Headers {
   const headers = new Headers(request.headers);
   headers.set("x-locale", locale);

@@ -11,7 +11,7 @@ type Props = {
 
 export default function Network({
   dict,
-  imageSrc = "/images/memory-flow.jpg",
+  imageSrc = "/images/atelier-memory-flow.jpg",
 }: Props) {
   return (
     <section className="section-pad border-t border-surface-border bg-bg-elevated">

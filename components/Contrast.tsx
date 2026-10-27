@@ -11,7 +11,7 @@ type Props = {
 
 export default function Contrast({
   dict,
-  imageSrc = "/images/contrast-loyalty-vs-flare.jpg",
+  imageSrc = "/images/atelier-contrast.jpg",
 }: Props) {
   return (
     <section className="section-pad border-t border-surface-border bg-bg">

@@ -11,10 +11,10 @@ type Props = {
 };
 
 const defaultStepMedia = [
-  "/images/whisper-capture.jpg",
-  "/images/taste-graph.jpg",
-  "/images/moment-return-note.jpg",
-  "/images/staff-prompt.jpg",
+  "/images/atelier-whisper-capture.jpg",
+  "/images/atelier-taste-graph.jpg",
+  "/images/atelier-orchestrate.jpg",
+  "/images/atelier-deliver.jpg",
 ] as const;
 
 export default function Engine({ dict, stepImages = defaultStepMedia }: Props) {

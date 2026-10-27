@@ -102,12 +102,6 @@ export default function SignIn({
               label={dict.lang.label}
               basePath={basePath}
             />
-            <Link
-              href={`${localePath(locale, "", basePath)}#contact`}
-              className="text-sm text-hero-muted transition-colors hover:text-hero-fg"
-            >
-              {t.getInTouch}
-            </Link>
           </div>
         </nav>
       </motion.header>
@@ -226,16 +220,6 @@ export default function SignIn({
                 {status === "submitting" ? t.submitting : t.submit}
               </button>
             </form>
-
-            <p className="mt-6 text-center text-sm text-hero-muted">
-              {t.newProperty}{" "}
-              <Link
-                href={`${localePath(locale, "", basePath)}#contact`}
-                className="text-hero-fg/90 underline-offset-4 transition-colors hover:text-accent hover:underline"
-              >
-                {t.requestAccess}
-              </Link>
-            </p>
           </motion.div>
         </div>
       </main>

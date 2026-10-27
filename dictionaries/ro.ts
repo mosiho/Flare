@@ -2,18 +2,18 @@ import type en from "./en";
 
 const ro: typeof en = {
   meta: {
-    title: "Flare — Memoria oaspeților pentru ospitalitate independentă",
+    title:
+      "Flare Atelier — Memoria clienților pentru retail de lux independent",
     description:
-      "Flare ajută hotelurile independente să țină minte oaspeții între sejururi. Inteligență discretă pentru personal, nu încă un program de loialitate.",
+      "Flare Atelier ajută casele independente de ceasuri, bijuterii și colecții rare să țină minte clienții între vizite. Inteligență discretă pentru asociați, nu încă un CRM de clienteling.",
     ogDescription:
-      "Memoria oaspeților pentru hoteluri independente. Ajută personalul să țină minte oameni, nu segmente.",
-    signInTitle: "Autentificare — Flare",
+      "Memoria clienților pentru ceasuri, bijuterii fine și buticuri de colecție. Ajută asociații să țină minte oameni, nu segmente.",
+    signInTitle: "Autentificare — Flare Atelier",
     signInDescription:
-      "Autentificare pentru personalul Flare. Memoria oaspeților pentru hoteluri independente.",
+      "Autentificare pentru asociații Flare Atelier. Memoria clienților pentru retail de lux independent.",
   },
   nav: {
     signIn: "Conectare",
-    getInTouch: "Contact",
   },
   lang: {
     en: "EN",
@@ -21,46 +21,45 @@ const ro: typeof en = {
     label: "Limbă",
   },
   hero: {
-    headline: "Relația trăiește între sejururi.",
-    sub: "Memoria oaspeților pentru hoteluri independente. Ajută personalul să țină minte oameni, nu segmente.",
-    cta: "Contactează-ne",
+    headline: "Ce e în spatele sticlei rămâne ținut minte.",
+    sub: "Memoria clienților pentru case independente de ceasuri, bijuterii și colecții rare. Ajută asociații să țină minte oameni, nu segmente.",
     secondary: "Vezi cum funcționează",
   },
   problem: {
     eyebrow: "Golul",
     headline:
-      "Hotelurile au devenit excelente la sejur. Au uitat lunile dintre ele.",
-    body: "Gusturile se schimbă. Personalul se schimbă. Notele rămân în capul cuiva. Între timp, o altă proprietate trimite un e-mail discret și câștigă oaspetele pe care tu l-ai câștigat deja.",
+      "Buticurile au devenit excelente la tranzacție. Au uitat lunile dintre ele.",
+    body: "Gusturile se schimbă. Asociații pleacă. Ce știau despre un client pleacă odată cu ei. Între timp, o casă rivală trimite o notă personală discretă și câștigă clientul pe care tu l-ai câștigat deja.",
     closer:
-      "Flare tratează acel interval liniștit ca pe suprafața principală, nu ca pe o idee secundară.",
+      "Flare Atelier tratează acel interval liniștit ca pe suprafața principală, nu ca pe o idee secundară.",
   },
   contrast: {
     eyebrow: "Ce nu este",
-    headline: "Nu este un program de loialitate.",
-    body: "Oaspeții ar trebui să se simtă ținuți minte, nu urmăriți.",
+    headline: "Nu este un CRM de clienteling.",
+    body: "Clienții ar trebui să se simtă ținuți minte, nu vizați.",
     imageAlt:
-      "Loialitate și CRM în stânga, cu puncte, niveluri, calendare și e-mailuri automate, versus Flare în dreapta, cu memorie umană, note personale și grijă condusă de personal",
+      "CRM de clienteling în stânga, cu auto-etichete, campanii și outreach automat, versus Flare Atelier în dreapta, cu memorie umană, note personale și grijă condusă de asociați",
   },
   engine: {
     eyebrow: "Cum funcționează",
     headline: "Patru pași. Liniște ca stare implicită.",
-    body: "Flare transformă ceea ce observă personalul într-un model viu al oaspetelui, apoi pune acțiunea potrivită în fața persoanei potrivite.",
+    body: "Flare Atelier transformă ceea ce observă asociații într-un model viu al clientului, apoi pune acțiunea potrivită în fața persoanei potrivite.",
     loopAgain: "Apoi bucla începe din nou",
     steps: [
       {
         id: "01",
         name: "Captură",
-        body: "Fapte din PMS plus șoapte de la personal. Ce s-a întâmplat și ce a însemnat.",
+        body: "Fapte din POS plus șoapte de la asociați. Ce s-a cumpărat și ce a însemnat.",
         detail:
-          "Istoricul sejururilor, cererile și notele informale pe care de obicei niciun sistem nu le păstrează.",
-        alt: "Personal care notează o observație discretă despre un oaspete",
+          "Istoricul achizițiilor, programările și notele informale pe care de obicei niciun sistem de retail nu le păstrează.",
+        alt: "Asociat care notează o observație discretă despre un client",
       },
       {
         id: "02",
         name: "Model",
-        body: "Un model viu al oaspetelui, care evoluează odată cu persoana.",
+        body: "Un grafic viu al gusturilor, care evoluează odată cu persoana.",
         detail:
-          "Gusturi, însoțitori și respingeri care se estompează — nu un rând plat din CRM.",
+          "Gusturi, ocazii și refuzuri care se estompează — nu un rând plat din CRM.",
         alt: "Grafic viu al gusturilor",
       },
       {
@@ -69,84 +68,77 @@ const ro: typeof en = {
         body: "Tăcerea este starea implicită. Ceva apare doar când merită momentul.",
         detail:
           "Ritmul, sensibilitatea și vocea casei decid ce trece mai departe.",
-        alt: "O notă liniștită așteaptă lângă fereastră până când momentul e potrivit",
+        alt: "O notă liniștită așteaptă până când momentul e potrivit",
       },
       {
         id: "04",
         name: "Livrare",
-        body: "Prompt pentru persoana potrivită. Nu inboxul oaspetelui.",
+        body: "Prompt pentru asociatul potrivit. Nu inboxul clientului.",
         detail:
-          "Grija rămâne umană — personalul alege cuvintele, Flare alege momentul.",
-        alt: "Personal care pregătește o notă personală",
+          "Recunoașterea rămâne umană — asociații aleg cuvintele, Flare Atelier alege momentul.",
+        alt: "Asociat care pregătește o notă personală",
       },
     ],
   },
   example: {
     eyebrow: "În practică",
-    headline: "Un gust menționat o dată. Ținut minte luni mai târziu.",
-    body: "La micul dejun, o oaspete spune că un gust îi amintește de verile din copilărie. Nu se vinde nimic. Luni mai târziu, ceva mic apare la un sejur de întoarcere.",
-    howLabel: "Cum știe Flare să facă asta",
-    imageAlt: "Memorie de gust la masa de mic dejun",
+    headline: "Un inel menționat o dată. O cutie sosește ca surpriză.",
+    body: "În timpul unei programări liniștite, o clientă menționează că a moștenit inelul de logodnă al bunicii — îl iubește, dar nu a avut niciodată un loc potrivit pentru el. Nu se propune nimic. Luni mai târziu, casa comandă o cutie frumoasă pentru moștenire și i-o trimite, neanunțat.",
+    howLabel: "Cum știe Flare Atelier să facă asta",
+    imageAlt: "Cutie surpriză artizanală cu un inel de logodnă moștenit",
     beats: [
       {
         title: "Capturat",
-        body: "Personalul lasă fragmentul în cutia de șoapte. Nu un formular. Doar o notă.",
+        body: "Asociatul lasă fragmentul în cutia de șoapte. Nu un formular. Doar o notă.",
       },
       {
         title: "Păstrat",
-        body: "Flare îl ține pe graficul ei viu de gusturi, în liniște, până când contextul îl face util.",
+        body: "Flare Atelier îl ține pe graficul ei viu de gusturi, în liniște, până când momentul se simte potrivit.",
       },
       {
         title: "La suprafață",
-        body: "Se apropie un sejur de întoarcere. Ritmul și sensibilitatea spun că acesta poate prinde. Un membru al personalului primește promptul. Ei decid cum.",
+        body: "Ritmul și sensibilitatea spun că acesta poate prinde. Un asociat primește promptul — comandă o cutie, trimite-o ca surpriză. Ei decid cum.",
       },
     ],
   },
   architecture: {
     eyebrow: "Se potrivește unde ești",
-    headline: "Stă pe PMS-ul tău. Nu îl înlocuiește.",
-    body: "Flare citește ce știe deja sistemul tău, adaugă stratul informal pe care personalul îl poartă în cap și trimite acțiuni înapoi oamenilor.",
-    flareLabel: "Flare",
-    flareTitle: "Memoria oaspeților",
-    pmsLabel: "PMS-ul tău",
+    headline: "Stă pe sistemul tău de retail. Nu îl înlocuiește.",
+    body: "Flare Atelier citește ce știe deja POS-ul tău, adaugă stratul informal pe care asociații îl poartă în cap și trimite acțiuni înapoi oamenilor.",
+    flareLabel: "Flare Atelier",
+    flareTitle: "Memoria clienților",
+    pmsLabel: "POS-ul tău",
     pmsTitle: "Operațiuni",
     flows: [
-      { title: "Intrare", body: "Istoricul sejururilor și profilele din PMS." },
+      {
+        title: "Intrare",
+        body: "Istoricul achizițiilor și profilele din sistemul de retail.",
+      },
       {
         title: "De asemenea",
-        body: "Note vocale și observații ale personalului.",
+        body: "Note vocale și observații ale asociaților.",
       },
       {
         title: "Ieșire",
-        body: "Acțiuni pentru personal. Rareori, o notă trimisă de un om.",
+        body: "Acțiuni pentru asociați. Rareori, o notă privată trimisă de un om.",
       },
     ],
   },
   network: {
     eyebrow: "Cum memoria devine grijă",
-    headline: "Observat în fiecare spațiu. Simțit între sejururi.",
-    body: "Semnalele se adună în liniște. Apoi apare grija — în intervalul lung dintre vizite și când se întorc.",
+    headline: "Observat pe podea. Simțit între vizite.",
+    body: "Semnalele se adună în liniște. Apoi apare recunoașterea — în intervalul lung dintre vizite și când se întorc.",
     imageAlt:
-      "Spațiile hotelului alimentează memoria oaspeților Flare, care aduce grija între sejururi și pregătește următoarea întoarcere",
-  },
-  contact: {
-    eyebrow: "Contactează-ne",
-    name: "Mosi",
-    body: "Construiesc Flare. Cu plăcere discutăm.",
-    socialLabel: "Linkuri sociale",
-    onPlatform: "Mosi pe",
-    comingSoon: "Link în curând",
-    comingSoonAria: "— link în curând",
+      "Spațiile buticului alimentează memoria clienților Flare Atelier, care aduce grija între vizite și pregătește următoarea întoarcere",
   },
   footer: {
-    tagline: "Memoria oaspeților pentru ospitalitate independentă.",
+    tagline: "Memoria clienților pentru ceasuri, bijuterii și colecții rare.",
   },
   signIn: {
-    getInTouch: "Contactează-ne",
-    headline: "Autentificare personal",
-    sub: "Pentru hoteluri independente. Memorie discretă a oaspeților, în culise pentru echipa ta.",
+    headline: "Autentificare asociați",
+    sub: "Pentru buticuri independente. Memorie discretă a clienților, în culise pentru echipa ta.",
     email: "Email de serviciu",
-    emailPlaceholder: "tu@proprietate.com",
+    emailPlaceholder: "tu@butic.com",
     password: "Parolă",
     forgot: "Ai uitat parola?",
     remember: "Ține minte acest dispozitiv",
@@ -155,8 +147,6 @@ const ro: typeof en = {
     errorEmail: "Introdu un email de serviciu valid.",
     errorPassword: "Parola trebuie să aibă cel puțin 8 caractere.",
     errorCredentials: "Email sau parolă incorectă.",
-    newProperty: "Proprietate nouă?",
-    requestAccess: "Solicită acces",
   },
 };
 
